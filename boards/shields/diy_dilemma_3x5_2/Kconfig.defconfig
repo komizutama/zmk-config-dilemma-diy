@@ -1,4 +1,3 @@
-# Kconfig.defconfig
 if SHIELD_DIY_DILEMMA_3X5_2_LEFT
 
 config ZMK_KEYBOARD_NAME
@@ -13,18 +12,5 @@ if SHIELD_DIY_DILEMMA_3X5_2_LEFT || SHIELD_DIY_DILEMMA_3X5_2_RIGHT
 
 config ZMK_SPLIT
     default y
-
-if ZMK_DISPLAY
-
-config SPI
-    default y
-
-config IL0323O
-    default y
-
-config ZMK_DISPLAY_BLANK_ON_IDLE
-    default y
-
-endif # ZMK_DISPLAY
 
 endif
