@@ -9,10 +9,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
 
 &mt {
-    //  flavor = "tap-preferred";
-    // tapping_term_ms = <200>;
+    flavor = "tap-preferred";
+    tapping_term_ms = <175>;
 };
 
 / {
@@ -53,6 +54,55 @@
             key-positions = <15 16>;
             bindings = <&kp RGUI>;
         };
+        
+        combo_system_left {
+            timeout-ms = <40>;
+            key-positions = <24 31>; // B + DEL
+            bindings = <&mo 4>;
+        };
+        
+        combo_system_right {
+            timeout-ms = <40>;
+            key-positions = <25 32>; // N + ENT
+            bindings = <&mo 4>;
+        };
+        
+        combo_undo {
+            timeout-ms = <50>;
+            key-positions = <20 21>; // Z + X
+            bindings = <&kp LC(Z)>;
+        };
+        
+        combo_cut {
+            timeout-ms = <50>;
+            key-positions = <21 22>; // X + C
+            bindings = <&kp LC(X)>;
+        };
+        
+        combo_copy {
+            timeout-ms = <50>;
+            key-positions = <22 23>; // C + V
+            bindings = <&kp LC(C)>;
+        };
+        
+        combo_paste {
+            timeout-ms = <50>;
+            key-positions = <23 24>; // V + B
+            bindings = <&kp LC(V)>;
+        };
+        
+        combo_gaming_toggle {
+            timeout-ms = <50>;
+            key-positions = <0 9>; // Q + P
+            bindings = <&tog 5>;
+        };
+        
+        combo_gaming_numbers {
+            timeout-ms = <40>;
+            key-positions = <30 31>; // Both thumb keys
+            bindings = <&mo 1>;
+            layers = <5>;
+        };
     };
 
     keymap {
@@ -61,13 +111,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
-            &lt 4 Q    &kp W      &kp E      &kp R      &lt 3 T        &lt 3 Y    &kp U      &kp I      &kp O      &lt 4 P
+            &kp Q      &kp W      &kp E      &kp R      &lt 3 T        &lt 3 Y    &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ;        │
-            &kp A      &kp S      &kp D      &kp F      &lt 2 G        &lt 2 H    &kp J      &kp K      &kp L      &kp SEMICOLON
+        //│ MT(CTRL,A)│ MT(ALT,S) │ MT(GUI,D) │MT(SHFT,F) │  G       │   │  H       │MT(SHFT,J) │ MT(GUI,K) │ MT(ALT,L) │MT(CTRL,;)│
+            &mt LCTRL A &mt LALT S &mt LGUI D &mt LSHIFT F &lt 2 G    &lt 2 H  &mt RSHIFT J &mt RGUI K &mt RALT L &mt RCTRL SEMICOLON
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ CTRL+Z   │ GUI+X    │ ALT+C    │ SHIFT+V  │  B       │   │  N       │ SHIFT+M  │ ALT+,    │ GUI+.    │ CTRL+/   │
-           &kp LC(Z)  &kp LG(X)  &kp LA(C)  &kp LS(V)  &lt 1 B        &lt 1 N    &kp RS(M)  &kp RA(COMMA) &kp RG(DOT) &kp RC(SLASH)
+        //│    Z     │    X     │    C     │    V     │  B       │   │  N       │    M     │    ,     │    .     │    /     │
+           &kp Z      &kp X      &kp C      &kp V      &lt 1 B        &lt 1 N    &kp M      &kp COMMA  &kp DOT    &kp SLASH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &kp BSPC   &kp DEL        &kp ENTER  &kp SPACE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -77,14 +127,14 @@
         symbols_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ ESC      │          │          │          │          │   │  [       │  ]       │  -       │  =       │          │
-           &gresc     &trans     &trans     &trans     &trans         &kp LBKT   &kp RBKT   &kp MINUS  &kp EQUAL  &trans
+        //│ ESC      │  !       │  @       │  #       │  $       │   │  %       │  ^       │  &       │  *       │  '       │
+           &gresc     &kp EXCL   &kp AT     &kp HASH   &kp DLLR       &kp PRCNT  &kp CARET  &kp AMPS   &kp ASTRK  &kp APOS
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  1       │  2       │  3       │  4       │  5       │   │  6       │  7       │  8       │  9       │  0       │
             &kp N1     &kp N2     &kp N3     &kp N4     &kp N5         &kp N6     &kp N7     &kp N8     &kp N9     &kp N0
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  PREV    │  PLAY    │  NEXT    │  BRID    │          │   │          │  BRIU    │  MUTE    │  VOLD    │  VOLU    │
-            &kp C_PREV &kp C_PP   &kp C_NEXT &kp C_BRI_DN &trans     &trans   &kp C_BRI_UP &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP
+        //│  `       │  ~       │  (       │  )       │  {       │   │  }       │  [       │  ]       │  -       │  =       │
+            &kp GRAVE  &kp TILDE  &kp LPAR   &kp RPAR   &kp LBRC       &kp RBRC   &kp LBKT   &kp RBKT   &kp MINUS  &kp EQUAL
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -128,16 +178,33 @@
         system_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ BT_0     │ BT_1     │ BT_2     │ BT_3     │ BT_4     │   │BOOTLOADER│ RESET    │          │          │ EXT_PWR  │
-           &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bootloader &sys_reset &trans   &trans &ext_power EP_TOG
+        //│ BT_0     │ BT_1     │ BT_2     │ BT_3     │ BT_4     │   │  PREV    │  PLAY    │  NEXT    │  BRID    │  BRIU    │
+           &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp C_PREV &kp C_PP &kp C_NEXT &kp C_BRI_DN &kp C_BRI_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ BT_CLR   │BT_CLR_ALL│          │          │          │   │          │          │          │          │          │
-           &bt BT_CLR &bt BT_CLR_ALL &trans &trans     &trans         &trans     &trans     &trans     &trans     &trans
+        //│ BT_CLR   │BT_CLR_ALL│BOOTLOADER│ RESET    │ OUT_USB  │   │          │          │  MUTE    │  VOL-    │  VOL+    │
+           &bt BT_CLR &bt BT_CLR_ALL &bootloader &sys_reset &out OUT_USB &trans &trans &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans     &trans         &trans     &trans     &trans     &trans     &trans
+        //│ OUT_BLE  │ OUT_TOG  │ EXT_PWR  │          │          │   │          │          │          │          │          │
+           &out OUT_BLE &out OUT_TOG &ext_power EP_TOG &trans &trans &trans &trans &trans &trans &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+        
+        gaming_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
+            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ;        │
+            &kp A      &kp S      &kp D      &kp F      &kp G          &kp H      &kp J      &kp K      &kp L      &kp SEMICOLON
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │  ,       │  .       │  /       │
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                             &kp LSHFT  &kp LCTRL      &kp ESC    &kp SPACE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
