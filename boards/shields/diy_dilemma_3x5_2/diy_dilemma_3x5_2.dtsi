@@ -30,17 +30,17 @@
 
         diode-direction = "col2row";
         row-gpios
-            = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 - D20/P0.29
-            , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // Row 1 - D3/P0.20  
-            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // Row 2 - D5/P0.24
-            , <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 3 - D18/P1.15 (thumb cluster)
+            = <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 - P0.29 (R1 on PCB)
+            , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 1 - P0.20 (R2 on PCB)
+            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 2 - P0.24 (R3 on PCB)
+            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 3 - P1.15 (R4/thumb cluster)
             ;
         col-gpios
-            = <&pro_micro 8 GPIO_ACTIVE_HIGH>    // Col 0 - D8/P1.04
-            , <&pro_micro 9 GPIO_ACTIVE_HIGH>    // Col 1 - D9/P1.06
-            , <&pro_micro 7 GPIO_ACTIVE_HIGH>    // Col 2 - D7/P0.11
-            , <&pro_micro 6 GPIO_ACTIVE_HIGH>    // Col 3 - D6/P1.00
-            , <&pro_micro 19 GPIO_ACTIVE_HIGH>   // Col 4 - D19/P0.02
+            = <&gpio1 4 GPIO_ACTIVE_HIGH>    // Col 0 - P1.04 (C2 on PCB)
+            , <&gpio1 6 GPIO_ACTIVE_HIGH>    // Col 1 - P1.06 (C3 on PCB)
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>   // Col 2 - P0.11 (C4 on PCB)
+            , <&gpio1 0 GPIO_ACTIVE_HIGH>    // Col 3 - P1.00 (C5 on PCB)
+            , <&gpio0 2 GPIO_ACTIVE_HIGH>    // Col 4 - P0.02 (C6 on PCB)
             ;
     };
 
