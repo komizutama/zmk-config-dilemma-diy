@@ -1,7 +1,0 @@
-# Kconfig.shield - Shield configuration
-
-config SHIELD_DIY_DILEMMA_3X5_2_LEFT
-    def_bool $(shields_list_contains,diy_dilemma_3x5_2_left)
-
-config SHIELD_DIY_DILEMMA_3X5_2_RIGHT
-    def_bool $(shields_list_contains,diy_dilemma_3x5_2_right)
