@@ -5,17 +5,3 @@
  */
 
 #include "diy_dilemma_3x5_2.dtsi"
-
-&kscan0 {
-    col-gpios
-        = <&pro_micro 8 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 9 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 18 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 6 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 19 GPIO_ACTIVE_HIGH>
-        ;
-};
-
-&right_encoder {
-    status = "okay";
-};
