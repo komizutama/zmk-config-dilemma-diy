@@ -30,32 +30,38 @@
 
         diode-direction = "col2row";
         row-gpios
-            = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&pro_micro 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 - R1 on PCB
+            , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 1 - R2 on PCB  
+            , <&pro_micro 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 2 - R3 on PCB
+            , <&pro_micro 115 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 3 - R4 on PCB (thumb cluster)
+            ;
+        col-gpios
+            = <&pro_micro 104 GPIO_ACTIVE_HIGH>   // Col 0 - C2 on PCB
+            , <&pro_micro 106 GPIO_ACTIVE_HIGH>   // Col 1 - C3 on PCB
+            , <&pro_micro 11 GPIO_ACTIVE_HIGH>    // Col 2 - C4 on PCB
+            , <&pro_micro 100 GPIO_ACTIVE_HIGH>   // Col 3 - C5 on PCB
+            , <&pro_micro 2 GPIO_ACTIVE_HIGH>     // Col 4 - C6 on PCB
             ;
     };
 
-    // Node for left hand side
-    left_encoder: encoder_left {
-        compatible = "alps,ec11";
-        label = "LEFT_ENCODER";
-        a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "disabled";
-    };
+    // Encoders completely disabled to avoid pin conflicts
+    // left_encoder: encoder_left {
+    //     compatible = "alps,ec11";
+    //     label = "LEFT_ENCODER";
+    //     a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     steps = <80>;
+    //     status = "disabled";
+    // };
 
-    // Node for right hand side  
-    right_encoder: encoder_right {
-        compatible = "alps,ec11";
-        label = "RIGHT_ENCODER";
-        a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "disabled";
-    };
+    // right_encoder: encoder_right {
+    //     compatible = "alps,ec11";
+    //     label = "RIGHT_ENCODER";
+    //     a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     steps = <80>;
+    //     status = "disabled";
+    // };
 
     sensors {
         compatible = "zmk,keymap-sensors";
