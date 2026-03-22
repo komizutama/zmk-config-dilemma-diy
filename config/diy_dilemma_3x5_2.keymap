@@ -161,16 +161,16 @@
         navigation_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ POWER    │          │  UP      │ PSCREEN  │          │   │          │          │ MS_UP    │          │ EE_CLR   │
-           &kp C_PWR   &trans     &kp UP     &kp PSCRN  &trans         &trans     &trans     &mmv MOVE_UP &trans   &sys_reset
+        //│ POWER    │          │  UP      │ PSCREEN  │          │   │          │          │ UP       │          │ EE_CLR   │
+           &kp C_PWR   &trans     &kp UP     &kp PSCRN  &trans         &trans     &trans     &kp UP     &trans     &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ WAKE     │ LEFT     │ DOWN     │ RIGHT    │ HOME     │   │ SCRL_UP  │ MS_LEFT  │ MS_DOWN  │ MS_RIGHT │ BOOT     │
-           &kp C_WAKE  &kp LEFT   &kp DOWN   &kp RIGHT  &kp HOME       &msc SCRL_UP &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &bootloader
+        //│ WAKE     │ LEFT     │ DOWN     │ RIGHT    │ HOME     │   │ PG_UP    │ LEFT     │ DOWN     │ RIGHT    │ BOOT     │
+           &kp C_WAKE  &kp LEFT   &kp DOWN   &kp RIGHT  &kp HOME       &kp PG_UP  &kp LEFT   &kp DOWN   &kp RIGHT  &bootloader
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ SLEEP    │          │ PG_DN    │ PG_UP    │ END      │   │ SCRL_DN  │          │          │          │ RESET    │
-           &kp C_SLEEP &trans     &kp PG_DN  &kp PG_UP  &kp END        &msc SCRL_DOWN &trans &trans     &trans     &sys_reset
+        //│ SLEEP    │          │ PG_DN    │ PG_UP    │ END      │   │ PG_DN    │          │          │          │ RESET    │
+           &kp C_SLEEP &trans     &kp PG_DN  &kp PG_UP  &kp END        &kp PG_DN  &trans     &trans     &trans     &sys_reset
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &mkp LCLK  &mkp RCLK
+                                             &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
